@@ -1,0 +1,53 @@
+//5번문제
+	public static void main(String[] args) {
+		int[][]pond2 =new int[10][10];
+		
+		int[][]pond = {
+			    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+
+			    {0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+			    
+			    {0, 0, 0, 1, 1, 1, 0, 0, 0, 0},
+			    
+			    {0, 1, 1, 1, 1, 1, 1, 0, 0, 0},
+			    
+			    {0, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+			  
+			    {0, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+			    
+			    {0, 0, 1, 1, 1, 1, 1, 1, 0, 0},
+			    
+			    {0, 0, 0, 1, 1, 1, 1, 0, 0, 0},
+			    
+			    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+			    
+			    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+
+			};
+//		pond[1][4] = pond[1][4] +1;
+//		System.out.println(pond[1][4]);
+		
+			for (int i = 0; i < pond.length; i++) {
+				for (int j = 0; j < pond[i].length; j++) {
+					if(i==0 || j==0 || i==pond.length-1 || j==pond.length-1) {
+						System.out.print(pond[i][j] + " ");
+				
+					}
+					else{
+					int base = pond[i][j];
+					int left = pond[i][j-1];
+					int right = pond[i][j+1];
+					int top = pond[i-1][j];
+					int bottom = pond[i+1][j];
+					
+						if(base<=left && base<=right && base<=top && base<=bottom) 
+							pond[i][j]++;
+							System.out.print(pond[i][j] + " ");
+						
+					
+					}				
+				}
+				System.out.println();
+			}
+			
+	}

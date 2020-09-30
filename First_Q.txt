@@ -1,0 +1,90 @@
+//JAVA , Eclipse 사용
+//메인
+public static void main(String[] args) {
+ BreadType breadType = new BreadType();
+ String[] i = {"cream","sugar","butter"};
+	for (String type : i){
+		 breadType.createBread(type);
+	}
+}
+
+//인터페이스
+public interface Bread {
+
+}
+//클라스
+import java.util.HashMap;
+
+public class cream implements Bread {
+	String type;
+	HashMap<String, Integer> recipe;
+	
+	public cream() {
+		recipe = new HashMap<String, Integer>();
+		this.type="cream";
+		this.recipe.put("flour",100);
+		this.recipe.put("water",100);
+		this.recipe.put("cream",200);
+		System.out.println(this.type);
+		System.out.println(this.recipe);
+	}
+
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+import java.util.HashMap;
+
+public class butter implements Bread {
+	String type;
+	HashMap<String, Integer> recipe;
+	
+	public butter() {
+		recipe = new HashMap<String, Integer>();
+		this.type="butter";
+		recipe.put("flour",100);
+		recipe.put("water",100);
+		recipe.put("butter",50);
+		System.out.println(this.type);
+		System.out.println(this.recipe);
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+import java.util.HashMap;
+
+public class sugar implements Bread {
+
+	String type;
+	HashMap<String, Integer> recipe;
+	
+	public sugar() {
+		recipe = new HashMap<String, Integer>();
+		this.type="sugar";
+		recipe.put("flour",100);
+		recipe.put("water",50);
+		recipe.put("sugar",200);
+		System.out.println(this.type);
+		System.out.println(this.recipe);
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+public class BreadType {
+	    public Bread createBread(String type){
+	        Bread bread = null;
+	        switch (type){
+	            case "cream":
+	                bread = new cream();
+	                break;
+	            case "sugar":
+	                bread = new sugar();
+	                break;
+
+	            case "butter":
+	                bread = new butter();
+	                break;
+	        }
+
+	        return bread;
+	    }
+	
+}
